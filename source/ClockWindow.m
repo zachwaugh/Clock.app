@@ -25,6 +25,10 @@
 	return result;
 }
 
+- (void)cancelOperation:(id)sender
+{
+    [NSApp terminate: nil];
+}
 
 - (BOOL)canBecomeKeyWindow
 {
