@@ -10,7 +10,7 @@
 
 @implementation ClockView
 
-@synthesize textRect, textSize, backgroundColor, clipShape, textAttributes;
+@synthesize textRect, textSize, backgroundColor, clipShape, textAttributes, dateAttributes;
 
 
 - (id)initWithFrame:(NSRect)frame 
@@ -22,11 +22,19 @@
 		// Configure current time
 		NSString *clockDisplay = [[NSDate date] descriptionWithCalendarFormat:@"%I:%M:%S %p" timeZone:nil locale:nil];
 		
-		// Create attributes dict for text formatting
+		// Create attributes dict for time text formatting
 		self.textAttributes = [[NSMutableDictionary alloc] init];
-		[self.textAttributes setObject:[NSFont fontWithName:@"Helvetica" size:225.0] forKey:NSFontAttributeName];
+		[self.textAttributes setObject:[NSFont fontWithName:@"Helvetica" size:215.0] forKey:NSFontAttributeName];
 		[self.textAttributes setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 		
+		// Create attributes dict for date text formatting
+		self.dateAttributes = [[NSMutableDictionary alloc] init];
+		[self.dateAttributes setObject:[NSFont fontWithName:@"HelveticaNeue-Light" size:72.0] forKey:NSFontAttributeName];
+		[self.dateAttributes setObject:[NSColor colorWithCalibratedWhite:1.0 alpha:0.5] forKey:NSForegroundColorAttributeName];
+		NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+		[style setAlignment:NSCenterTextAlignment];
+		[self.dateAttributes setObject:style forKey:NSParagraphStyleAttributeName];
+
 		NSShadow *shadow = [[NSShadow alloc] init];
 		[shadow setShadowColor:self.backgroundColor];
 		[shadow setShadowBlurRadius:10.0];
@@ -35,6 +43,7 @@
 		// Calculate size of displayed text on screen
 		NSSize displaySize = [clockDisplay sizeWithAttributes:self.textAttributes];
 		displaySize.width += 100.0;
+		displaySize.height += 50.0;
 		
 		// Give some space on sides of text
 		self.textSize = displaySize;
@@ -83,7 +92,17 @@
 	[self.backgroundColor set];
 	[self.clipShape fill];
 	
-	[[[NSDate date] descriptionWithCalendarFormat:@"%I:%M:%S %p" timeZone:nil locale:nil] drawInRect:self.textRect withAttributes:self.textAttributes];
+	// calculate rect for time and date
+	NSRect timeRect = self.textRect;
+	timeRect.origin.y -= 10;
+
+	NSRect dateRect = self.textRect;
+	dateRect.origin.x = 0;
+	dateRect.origin.y += 210;
+	
+	NSDate *now = [NSDate date];
+	[[now descriptionWithCalendarFormat:@"%I:%M:%S %p" timeZone:nil locale:nil] drawInRect:timeRect withAttributes:self.textAttributes];
+	[[now descriptionWithCalendarFormat:@"%x" timeZone:nil locale:nil] drawInRect:dateRect withAttributes:self.dateAttributes];
 }
 
 @end

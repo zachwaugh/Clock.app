@@ -15,6 +15,7 @@
 	NSColor *backgroundColor;
 	NSBezierPath *clipShape;
 	NSMutableDictionary *textAttributes;
+	NSMutableDictionary *dateAttributes;
 }
 
 @property (assign) NSRect textRect;
@@ -22,5 +23,6 @@
 @property (retain) NSColor *backgroundColor;
 @property (retain) NSBezierPath *clipShape;
 @property (retain) NSMutableDictionary *textAttributes;
+@property (retain) NSMutableDictionary *dateAttributes;
 
 @end
