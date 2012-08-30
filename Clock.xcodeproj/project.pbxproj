@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		BFABBA6E0FC3BFD400FE182A /* big_clock.icns in Resources */ = {isa = PBXBuildFile; fileRef = BFABBA6D0FC3BFD400FE182A /* big_clock.icns */; };
-		DBF85FA00D65DB880032A05C /* ClockAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF85F9F0D65DB880032A05C /* ClockAppController.m */; };
+		DBF85FA00D65DB880032A05C /* ClockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF85F9F0D65DB880032A05C /* ClockAppDelegate.m */; };
 		DBF85FA30D65DBFC0032A05C /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF85FA20D65DBFC0032A05C /* ClockView.m */; };
 		DBF860010D65E5610032A05C /* ClockWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF860000D65E5610032A05C /* ClockWindow.m */; };
 /* End PBXBuildFile section */
@@ -29,8 +29,8 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFABBA6D0FC3BFD400FE182A /* big_clock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = big_clock.icns; sourceTree = "<group>"; };
 		DB1F06CA0D6A0F7F007CCFB1 /* Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBF85F9E0D65DB880032A05C /* ClockAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockAppController.h; sourceTree = "<group>"; };
-		DBF85F9F0D65DB880032A05C /* ClockAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockAppController.m; sourceTree = "<group>"; };
+		DBF85F9E0D65DB880032A05C /* ClockAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockAppDelegate.h; sourceTree = "<group>"; };
+		DBF85F9F0D65DB880032A05C /* ClockAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockAppDelegate.m; sourceTree = "<group>"; };
 		DBF85FA10D65DBFC0032A05C /* ClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockView.h; sourceTree = "<group>"; };
 		DBF85FA20D65DBFC0032A05C /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
 		DBF85FFF0D65E5610032A05C /* ClockWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockWindow.h; sourceTree = "<group>"; };
@@ -49,16 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* source */ = {
+		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DBF85F9E0D65DB880032A05C /* ClockAppController.h */,
-				DBF85F9F0D65DB880032A05C /* ClockAppController.m */,
+				DBF85F9E0D65DB880032A05C /* ClockAppDelegate.h */,
+				DBF85F9F0D65DB880032A05C /* ClockAppDelegate.m */,
 				DBF85FA10D65DBFC0032A05C /* ClockView.h */,
 				DBF85FA20D65DBFC0032A05C /* ClockView.m */,
 				DBF85FFF0D65E5610032A05C /* ClockWindow.h */,
 				DBF860000D65E5610032A05C /* ClockWindow.m */,
 			);
+			name = Classes;
 			path = source;
 			sourceTree = "<group>";
 		};
@@ -91,9 +92,9 @@
 		29B97314FDCFA39411CA2CEA /* quikclock */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* source */,
+				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				29B97317FDCFA39411CA2CEA /* resources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -109,7 +110,7 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		29B97317FDCFA39411CA2CEA /* resources */ = {
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				BFABBA6D0FC3BFD400FE182A /* big_clock.icns */,
@@ -117,6 +118,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 			);
+			name = Resources;
 			path = resources;
 			sourceTree = "<group>";
 		};
@@ -155,9 +157,16 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Clock" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* quikclock */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,7 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				DBF85FA00D65DB880032A05C /* ClockAppController.m in Sources */,
+				DBF85FA00D65DB880032A05C /* ClockAppDelegate.m in Sources */,
 				DBF85FA30D65DBFC0032A05C /* ClockView.m in Sources */,
 				DBF860010D65E5610032A05C /* ClockWindow.m in Sources */,
 			);
@@ -217,9 +226,11 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -227,8 +238,10 @@
 				GCC_PREFIX_HEADER = source/clock_Prefix.pch;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Clock;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -237,6 +250,9 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
@@ -244,7 +260,9 @@
 				GCC_PREFIX_HEADER = source/clock_Prefix.pch;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = Clock;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -252,13 +270,11 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				PREBINDING = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
@@ -266,13 +282,11 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				PREBINDING = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Release;

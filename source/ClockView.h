@@ -9,20 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ClockView : NSView
-{
-	NSRect textRect;
-	NSSize textSize;
-	NSColor *backgroundColor;
-	NSBezierPath *clipShape;
-	NSMutableDictionary *textAttributes;
-	NSMutableDictionary *dateAttributes;
-}
-
-@property (assign) NSRect textRect;
-@property (assign) NSSize textSize;
-@property (retain) NSColor *backgroundColor;
-@property (retain) NSBezierPath *clipShape;
-@property (retain) NSMutableDictionary *textAttributes;
-@property (retain) NSMutableDictionary *dateAttributes;
 
 @end
